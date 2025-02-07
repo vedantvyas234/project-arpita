@@ -1,67 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Rose Day</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Indie+Flower"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
     <style>
-      .ulu{
-        font-family: 'Dancing Script' ;
-        font-weight: 500;
-        font-size: 1.25em;
-        color: antiquewhite;
-      }
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Dancing Script', cursive;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            margin: 2rem;
+            box-sizing: border-box;
+        }
+
+        .rose-container {
+            flex: 1;
+            min-height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #sketch-holder {
+            width: 100%;
+            height: 100%;
+        }
+
+        .message-container {
+            flex: 1;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-text {
+            font-size: 1.5em;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: antiquewhite;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-family: 'Caveat', cursive;
+            color: #ff69b4;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .special-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        .special-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding: 1rem;
+                margin: 1rem;
+            }
+            
+            .rose-container {
+                min-height: 400px;
+            }
+
+            .message-text {
+                font-size: 1.2em;
+            }
+        }
     </style>
-     
-  </head>
-  <body>
-    <div class="container">
-      <div class="glass">
-        <div class="shine"></div>
-      </div>
-      <div class="thorns">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="leaves">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="petals">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div class="text">
-        <p class="ulu">Hey! Arpita<br> 
-          On this Rose Day, I just wanted to say:<br>
-          You’re like the coolest and most amazing person I’ve met randomly on a site (who knew Chatroulette could actually work out, right?).<br>
-          Your vibe is so unique, and honestly, your smile? It’s like a little reminder that the world isn’t such a bad place. 🌹<br>
-          </p>
-          
-          <h2>I have something that might make you smile: <a href="new.html">Click Here</a> 😊 </h2>
-          
-      </div>
+</head>
+<body>
+    <div class="main-container">
+        <div class="rose-container" id="sketch-holder"></div>
+        <div class="message-container">
+            <p class="message-text">
+                Hey! Arpita<br><br>
+                On this Rose Day, I just wanted to say:<br><br>
+                You're like the coolest and most amazing person I've met randomly on a site (who knew Chatroulette could actually work out, right?).<br><br>
+                Your vibe is so unique, and honestly, your smile? It's like a little reminder that the world isn't such a bad place. 🌹
+            </p>
+            <h2><a href="new.html" class="special-button">Click Here for Your Surprise 🎁</a></h2>
+        </div>
     </div>
-  </body>
+
+    <script>
+        let canvas;
+        
+        function setup() {
+            canvas = createCanvas(500, 600, WEBGL);
+            canvas.parent('sketch-holder');
+            colorMode(HSB);
+            angleMode(DEGREES);
+            stroke(205, 50, 100);
+            strokeWeight(4);
+        }
+
+        function draw() {
+            background(230, 50, 15);
+            orbitControl(4, 4);
+            rotateX(-30);
+            dahlia();
+        }
+
+        function dahlia() {
+            for(let r = 0; r <= 1; r += 0.03) {
+                beginShape(POINTS);
+                stroke(20-r*20, 80-r*40, 60+r*40);
+                for(let theta = 0; theta <= 180*30; theta += 1.5) {
+                    let phi = (180/1.75)*Math.exp(-theta/(11*180));
+                    let petalCut = 0.6+abs(asin(sin(4.75*theta))+420*sin(4.75*theta))/2000;
+                    let hangDown = 2.3*pow(r, 2)*pow(0.9*r-1, 2)*sin(phi);
+
+                    if(0 < petalCut * (r * sin(phi)+hangDown*cos(phi))) {
+                        let pX = 300 * (1-theta/20000) * petalCut * (r * sin(phi)+hangDown*cos(phi)) * sin(theta);
+                        let pY = -300 * (1-theta/20000) * petalCut * (r * cos(phi)-hangDown*sin(phi));
+                        let pZ = 300 * (1-theta/20000) * petalCut * (r * sin(phi)+hangDown*cos(phi)) * cos(theta);
+                        vertex(pX, pY, pZ);
+                    }
+                }
+                endShape();
+            }
+        }
+
+        // Make canvas responsive
+        function windowResized() {
+            const container = document.getElementById('sketch-holder');
+            resizeCanvas(container.offsetWidth, container.offsetHeight);
+        }
+    </script>
+</body>
 </html>
